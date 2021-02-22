@@ -32,7 +32,7 @@ public class Player : MonoBehaviour {
         prevPos = transform.position;
         MeleeLook();
         if(Input.GetMouseButtonDown(0) && !hasAttacked) {
-            AudioManager.PlaySound ("swordswing");
+            PlayerAudioManager.PlaySound ("swordswing");
             meleeAnimator.Play("slice");
             hasAttacked = true;
         }

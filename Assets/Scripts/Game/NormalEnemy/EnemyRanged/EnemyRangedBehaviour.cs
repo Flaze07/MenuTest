@@ -15,11 +15,13 @@ public class EnemyRangedBehaviour : MonoBehaviour
     private Vector2 movement;
     private Animator animator;
     private float attackCooldown;
+    private EnemyRangedAudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioManager = GetComponent<EnemyRangedAudioManager>();
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class EnemyRangedBehaviour : MonoBehaviour
                 Vector3 direction = target.position - transform.position;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 Instantiate(arrow, transform.position, Quaternion.Euler(0, 0, angle - 90));
+                audioManager.PlaySound("shoot");
             }
             attackCooldown = attackCooldownSet;
         } else {

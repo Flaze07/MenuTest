@@ -29,6 +29,8 @@ public class ArrowBehaviour : MonoBehaviour {
         if(other.gameObject.tag == "Player") {
             other.gameObject.GetComponent<PlayerDamaged>().OnPlayerDamaged(transform.gameObject, 1);
             Destroy(this.gameObject);
+        } else {
+            Destroy(this.gameObject);
         }
     }
 }

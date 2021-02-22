@@ -10,6 +10,7 @@ public class NextLevel : MonoBehaviour
         if(other.tag == "Player") {
             other.transform.position = nextLevelPosition.position;
             other.GetComponent<Player>().ResetCooldown();
+            other.GetComponent<PlayerHealthManager>().healthCount = 6;
         }
     }
 }
